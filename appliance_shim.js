@@ -30,7 +30,7 @@
 
   // Sets the orientation
   // @params "L" for Landscape, "P" for Portrait
-  exports.setOrientation = function() {
+  exports.setOrientation = function(o) {
     if (!available()) { return false; }
     Bridge.setOrientation(o);
   }
@@ -39,7 +39,21 @@
   // @return String L or P
   exports.getOrientation = function() {
     if (!available()) { return false; }
-    return Bridge.getOrientation(o);
+    return Bridge.getOrientation();
+  }
+
+  // Gets the volume
+  // @return int 0-100
+  exports.getVolume = function() {
+    if (!available()) { return false; }
+    return Bridge.getVolume();
+  }
+
+  // Sets the volume
+  // @params volume 0-100
+  exports.setVolume = function(v) {
+    if (!available()) { return false; }
+    return Bridge.setVolume(v);
   }
 
   // Sets the watchdog timer

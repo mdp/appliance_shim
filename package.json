@@ -1,6 +1,6 @@
 {
   "name": "appliance_shim",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A shim for the Appliance JS Bridge",
   "main": "appliance_shim.js",
   "scripts": {

@@ -1,0 +1,23 @@
+{
+  "name": "appliance_shim",
+  "version": "0.0.0",
+  "description": "A shim for the Appliance JS Bridge",
+  "main": "appliance_shim.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/mdp/ApplianceShim"
+  },
+  "keywords": [
+    "android",
+    "appliance"
+  ],
+  "author": "Mark Percival @mdp <m@mdp.im>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdp/ApplianceShim/issues"
+  },
+  "homepage": "https://github.com/mdp/ApplianceShim"
+}

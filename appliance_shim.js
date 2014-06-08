@@ -19,50 +19,52 @@
 
 }(this, function(root, exports) {
 
-  // ApplianceBridge is the global we expect on the Android Wrapper
-  var Bridge = root.ApplianceBridge;
+  var ApplianceShim = exports.ApplianceShim = function(){
+    this.Bridge = window.ApplianceBridge;
+    return this;
+  }
 
   // Am I on the Appliance, or on a client device
   // @return Boolean
-  var available = exports.available = function() {
-    return typeof Bridge !== 'undefined';
+  ApplianceShim.prototype.available = function() {
+    return typeof this.Bridge !== 'undefined';
   }
 
   // Sets the orientation
   // @params "L" for Landscape, "P" for Portrait
-  exports.setOrientation = function(o) {
-    if (!available()) { return false; }
-    Bridge.setOrientation(o);
+  ApplianceShim.prototype.setOrientation = function(o) {
+    if (!this.available()) { return false; }
+    this.Bridge.setOrientation(o);
   }
 
   // Gets the orientation
   // @return String L or P
-  exports.getOrientation = function() {
-    if (!available()) { return false; }
-    return Bridge.getOrientation();
+  ApplianceShim.prototype.getOrientation = function() {
+    if (!this.available()) { return false; }
+    return this.Bridge.getOrientation();
   }
 
   // Gets the volume
   // @return int 0-100
-  exports.getVolume = function() {
-    if (!available()) { return false; }
-    return Bridge.getVolume();
+  ApplianceShim.prototype.getVolume = function() {
+    if (!this.available()) { return false; }
+    return this.Bridge.getVolume();
   }
 
   // Sets the volume
   // @params volume 0-100
-  exports.setVolume = function(v) {
-    if (!available()) { return false; }
-    return Bridge.setVolume(v);
+  ApplianceShim.prototype.setVolume = function(v) {
+    if (!this.available()) { return false; }
+    return this.Bridge.setVolume(v);
   }
 
   // Sets the watchdog timer
   // @params int delay in milliseconds
   // You can set this to 0 if you want to remove it
   // Calling it again resets the timer.
-  exports.setOrientation = function() {
-    if (!available()) { return false; }
-    return Bridge.getOrientation(o);
+  ApplianceShim.prototype.setOrientation = function(o) {
+    if (!this.available()) { return false; }
+    return this.Bridge.setOrientation(o);
   }
 
 }));

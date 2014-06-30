@@ -44,15 +44,21 @@
     return this.Bridge.getOrientation();
   }
 
+  // Gets the volume max int
+  ApplianceShim.prototype.getMaxVolume = function() {
+    if (!this.available()) { return false; }
+    return this.Bridge.getMaxVolume();
+  }
+
   // Gets the volume
-  // @return int 0-100
+  // @return int 0-Max
   ApplianceShim.prototype.getVolume = function() {
     if (!this.available()) { return false; }
     return this.Bridge.getVolume();
   }
 
   // Sets the volume
-  // @params volume 0-100
+  // @params volume 0-Max
   ApplianceShim.prototype.setVolume = function(v) {
     if (!this.available()) { return false; }
     return this.Bridge.setVolume(v);
@@ -62,9 +68,9 @@
   // @params int delay in milliseconds
   // You can set this to 0 if you want to remove it
   // Calling it again resets the timer.
-  ApplianceShim.prototype.setOrientation = function(o) {
+  ApplianceShim.prototype.watchdog = function(ms) {
     if (!this.available()) { return false; }
-    return this.Bridge.setOrientation(o);
+    this.Bridge.watchdog(ms);
   }
 
 }));

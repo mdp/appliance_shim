@@ -64,6 +64,24 @@
     return this.Bridge.setVolume(v);
   }
 
+  // Putj the device to sleep
+  ApplianceShim.prototype.sleep = function() {
+    if (!this.available()) { return false; }
+    return this.Bridge.sleep();
+  }
+
+  // Putj the device to sleep for a set number of seconds
+  ApplianceShim.prototype.sleepFor = function(seconds) {
+    if (!this.available()) { return false; }
+    return this.Bridge.sleepFor(seconds);
+  }
+
+  // Get the battery percent
+  ApplianceShim.prototype.getBatteryLevel = function() {
+    if (!this.available()) { return false; }
+    return this.Bridge.getBatteryLevel();
+  }
+
   // Sets the watchdog timer
   // @params int delay in milliseconds
   // You can set this to 0 if you want to remove it
@@ -72,5 +90,7 @@
     if (!this.available()) { return false; }
     this.Bridge.watchdog(ms);
   }
+
+  return ApplianceShim;
 
 }));
